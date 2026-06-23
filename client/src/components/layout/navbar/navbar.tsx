@@ -51,7 +51,9 @@ const Logo = ({ className, theme }: { className?: string; theme: string }) => {
     <Link href={INTERNAL_PATHS.HOME} className={cn(className, "flex h-fit items-center gap-2")}>
       <Image src={logoSrc} alt="IIASA Logo" className="h-auto w-auto" />
       <div className={textColor}>
-        <span className="font-display text-2xl leading-10">Scenario Compass Initiative</span>
+        <span className="font-display hidden text-2xl leading-10 sm:inline">
+          Scenario Compass Initiative
+        </span>
       </div>
     </Link>
   );

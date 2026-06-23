@@ -82,7 +82,7 @@ export function EmbargoPopUp() {
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent
         showCloseButton={false}
-        className="bg-white sm:max-w-lg"
+        className="max-h-[90vh] overflow-y-auto bg-white sm:max-w-lg"
         aria-describedby={undefined}
         onInteractOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
@@ -141,7 +141,12 @@ export function EmbargoPopUp() {
             </Link>
           </div>
         </div>
-        <Button onClick={handleSkip} variant="outline" className="px-10" size="lg">
+        <Button
+          onClick={handleSkip}
+          variant="outline"
+          className="w-full whitespace-normal"
+          size="lg"
+        >
           Got it, continue to the dashboard
         </Button>
         <strong className="mt-2">Stay up to date on the Scenario Compass</strong>
@@ -160,7 +165,7 @@ export function EmbargoPopUp() {
         <Button
           onClick={handleSignup}
           disabled={!isValidEmail(email) || isSubmitting}
-          className="px-10"
+          className="w-full whitespace-normal"
           size="lg"
         >
           {isSubmitting ? "Signing up..." : "Sign up and continue to the dashboard"}

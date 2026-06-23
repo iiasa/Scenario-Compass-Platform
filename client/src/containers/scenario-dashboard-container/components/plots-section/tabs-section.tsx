@@ -14,7 +14,7 @@ export function TabsSectionSkeleton() {
           <button
             key={index}
             className={cn(
-              "w-full cursor-pointer rounded-t-md px-4 py-3 text-xs font-bold uppercase",
+              "w-full cursor-pointer rounded-t-md px-2 py-3 text-xs font-bold whitespace-nowrap uppercase sm:px-4",
               "general" === tab.tabTitle
                 ? "bg-background border border-b-0"
                 : "border-b bg-white hover:bg-stone-50",
@@ -40,7 +40,7 @@ export function TabsSection() {
           <button
             key={index}
             className={cn(
-              "w-full cursor-pointer rounded-t-md px-4 py-3 text-xs font-bold uppercase",
+              "w-full cursor-pointer rounded-t-md px-2 py-3 text-xs font-bold whitespace-nowrap uppercase sm:px-4",
               selectedTab.tabTitle === tab.tabTitle
                 ? "bg-background border border-b-0"
                 : "border-b bg-white hover:bg-stone-50",

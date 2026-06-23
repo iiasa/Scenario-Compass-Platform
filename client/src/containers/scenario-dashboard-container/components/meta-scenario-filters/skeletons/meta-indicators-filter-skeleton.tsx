@@ -3,7 +3,7 @@ import { AdvancedFilterSkeleton } from "@/containers/scenario-dashboard-containe
 export default function MetaIndicatorsFilterSkeleton(): React.ReactElement {
   return (
     <div className="w-full bg-white">
-      <div className="dashboard-container mx-auto flex h-fit w-full gap-6 pt-6 pb-2">
+      <div className="dashboard-container mx-auto grid grid-cols-1 gap-6 pt-6 pb-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         <AdvancedFilterSkeleton />
         <AdvancedFilterSkeleton />
         <AdvancedFilterSkeleton />

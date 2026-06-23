@@ -19,7 +19,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-between gap-10 pt-16 lg:flex-row">
+          <div className="flex flex-col items-center justify-between gap-6 pt-10 lg:flex-row lg:gap-10 lg:pt-16">
             <Image
               src="/images/logos/logo_iamc.png"
               className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
@@ -43,13 +43,13 @@ export function Footer() {
             />
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-7 pt-16 pb-12 text-center lg:flex-row lg:gap-14 lg:pb-16">
+          <div className="flex flex-col items-center justify-center gap-1 pt-10 pb-8 text-center lg:flex-row lg:gap-14 lg:pt-16 lg:pb-16">
             {mobilePaths.map((path, index) => {
               return (
                 <Link
                   key={index}
                   {...path}
-                  className="text-base leading-6 font-normal text-stone-700 hover:opacity-60"
+                  className="py-3 text-base leading-6 font-normal text-stone-700 hover:opacity-60 lg:py-0"
                 >
                   {path.label}
                 </Link>
@@ -58,10 +58,10 @@ export function Footer() {
           </div>
           <div
             className={
-              "flex flex-col items-center justify-between gap-6 border-t border-stone-200 py-14 md:flex-row md:gap-0 md:py-6"
+              "flex flex-col items-center justify-between gap-4 border-t border-stone-200 py-10 md:flex-row md:gap-0 md:py-6"
             }
           >
-            <div className="order-3 flex flex-col items-center justify-center gap-6 md:order-1 md:flex-row md:gap-4">
+            <div className="order-3 flex flex-col items-center justify-center gap-2 md:order-1 md:flex-row md:gap-4">
               <div
                 className="order-3 text-sm leading-6 font-normal text-stone-500 md:order-1"
                 role="contentinfo"
@@ -69,7 +69,7 @@ export function Footer() {
               >
                 © 2026 Scenario Compass Initiative
               </div>
-              <Dot className="order-2 text-stone-500" />
+              <Dot className="order-2 hidden text-stone-500 md:inline" />
               <div className="order-1 flex gap-9 md:order-3 md:gap-4">
                 <Link
                   {...EXTERNAL_LINKS.TERMS_OF_USE}
@@ -85,18 +85,18 @@ export function Footer() {
                 "order-1 flex flex-col items-center justify-center gap-5 md:order-2 md:flex-row"
               }
             >
-              <div className="flex gap-9 md:gap-5">
+              <div className="flex items-center gap-6">
                 <a
                   href="mailto:sci-info@iiasa.ac.at"
-                  className="text-sm leading-6 font-normal text-stone-700 hover:opacity-60"
+                  className="py-3 text-sm leading-6 font-normal text-stone-700 hover:opacity-60"
                 >
                   Contact
                 </a>
                 <Dot className="hidden text-stone-500 md:inline" />
-                <Link {...EXTERNAL_LINKS.BLUESKY}>
+                <Link {...EXTERNAL_LINKS.BLUESKY} className="-m-3 p-3">
                   <BlueskyLogoIcon />
                 </Link>
-                <Link {...EXTERNAL_LINKS.LINKEDIN}>
+                <Link {...EXTERNAL_LINKS.LINKEDIN} className="-m-3 p-3">
                   <Linkedin className={"text-stone-500"} size={20} strokeWidth={1} />
                 </Link>
               </div>

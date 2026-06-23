@@ -19,7 +19,7 @@ export default function FeedbackButton() {
   return (
     <Button
       asChild
-      className="text-background hover:bg-primary border-red-orange bg-red-orange fixed top-36 right-10 z-100 box-border origin-top-right -rotate-90 items-center justify-center gap-2 rounded-sm rounded-b-none border border-b-0 p-2 pr-3 hover:border-white hover:text-white"
+      className="text-background hover:bg-primary border-red-orange bg-red-orange fixed top-36 right-10 z-100 box-border hidden origin-top-right -rotate-90 items-center justify-center gap-2 rounded-sm rounded-b-none border border-b-0 p-2 pr-3 hover:border-white hover:text-white sm:flex"
     >
       <Link
         rel="noopener noreferrer"
