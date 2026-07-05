@@ -30,7 +30,7 @@ export default function LicensePage() {
           <Heading variant="dark" size="5xl" as="h1" id="hero-title" className="text-left">
             License
           </Heading>
-          <h2 className="text-background h-20 text-xl leading-7 lg:w-2/5"></h2>
+          <div aria-hidden="true" className="h-20 lg:w-2/5" />
         </div>
       </div>
       <section className="flex w-full flex-col items-center bg-white">
@@ -46,7 +46,7 @@ export default function LicensePage() {
             The data may be used for scientific research purposes. However, users must strictly
             adhere to the applicable{" "}
             <Link
-              href="https://www.nature.com/nature-portfolio/editorial-policies/preprints-and-conference-proceedings"
+              href="https://www.nature.com/nature-portfolio/editorial-policies/press-and-embargo-policies"
               target="_blank"
               rel="noopener noreferrer"
               className="underline"
