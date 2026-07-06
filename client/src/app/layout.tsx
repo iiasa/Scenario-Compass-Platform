@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 import { ClientProviders } from "@/app/providers";
 import FeedbackButton from "@/components/custom/feedback-button";
+import ScrollToTopButton from "@/components/custom/scroll-to-top-button";
 import { MatomoScript } from "@/components/matomo/matomo-script";
 import NavigationTracker from "@/components/matomo/navigation-tracker";
 import { headers } from "next/headers";
@@ -74,6 +75,7 @@ export default function RootLayout({
             {children}
             <Footer />
             <FeedbackButton />
+            <ScrollToTopButton />
             <NavigationTracker />
           </>
         </ClientProviders>
