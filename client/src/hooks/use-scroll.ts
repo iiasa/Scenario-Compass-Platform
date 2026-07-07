@@ -14,6 +14,7 @@ export function useScroll() {
   const [direction, setDirection] = useState<ScrollDirection>("up");
   const lastY = useRef(0);
   const ticking = useRef(false);
+  const rafId = useRef<number | null>(null);
 
   useEffect(() => {
     const update = () => {
@@ -24,12 +25,13 @@ export function useScroll() {
       }
       setY(currentY);
       ticking.current = false;
+      rafId.current = null;
     };
 
     const onScroll = () => {
       if (!ticking.current) {
         ticking.current = true;
-        window.requestAnimationFrame(update);
+        rafId.current = window.requestAnimationFrame(update);
       }
     };
 
@@ -38,7 +40,13 @@ export function useScroll() {
     // Initialise via the rAF path so we never call setState synchronously in
     // the effect body (picks up the position if the page loads pre-scrolled).
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId.current !== null) {
+        window.cancelAnimationFrame(rafId.current);
+        rafId.current = null;
+      }
+    };
   }, []);
 
   return { y, direction };
