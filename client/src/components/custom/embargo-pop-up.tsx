@@ -96,7 +96,7 @@ export function EmbargoPopUp() {
           The data may be used for scientific research purposes. However, users must strictly adhere
           to the applicable{" "}
           <Link
-            href="https://www.nature.com/nature-portfolio/editorial-policies/preprints-and-conference-proceedings"
+            href="https://www.nature.com/nature-portfolio/editorial-policies/press-and-embargo-policies"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
