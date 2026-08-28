@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heading } from "@/components/custom/heading";
 import MethodologyPageHero from "@/containers/methodology-container/methodology-page-hero";
+import { PublicReviewBlock } from "@/containers/methodology-container/public-review-block";
 import { CONTENT_LINK_CLASS } from "@/lib/utils";
 
 const Links = {
   IPCC_AR6: "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-III.pdf",
   SENSES_TOOLKIT: "https://climatescenarios.org/primer/",
-  QUALITY_CONTROLLER:
-    "https://scenario-evaluation-criteria.iamconsortium.org/stable/",
+  QUALITY_CONTROLLER: "https://scenario-evaluation-criteria.iamconsortium.org/stable/",
   FEATURED_REGISTRATION: "https://sandbox.scenariocompass.org/tor",
   Heerden: "https://doi.org/10.1038/s41560-025-01703-1",
   Soergel: "https://doi.org/10.1088/1748-9326/ad80af",
@@ -35,6 +35,8 @@ export default function MethodologyContainer() {
       </MethodologyPageHero>
       <section className="flex w-full flex-col items-center bg-white">
         <div className="content-container flex max-w-[846px] flex-col gap-8 py-24 pb-10">
+          <PublicReviewBlock />
+
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold text-stone-900">
               How are scenarios quality-controlled?
