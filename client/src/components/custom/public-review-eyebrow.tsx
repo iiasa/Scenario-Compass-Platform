@@ -14,10 +14,7 @@ export function PublicReviewEyebrow({ children, className }: Props) {
         className,
       )}
     >
-      <span
-        className="bg-burgundy animate-pulse-dot size-2 shrink-0 rounded-full"
-        aria-hidden="true"
-      />
+      <span className="bg-burgundy size-2 shrink-0 rounded-full" aria-hidden="true" />
       {children}
     </p>
   );
