@@ -139,6 +139,16 @@
   }
 }
 
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -161,5 +171,15 @@
   .dashboard-container {
     @apply mx-auto w-full px-12;
     max-width: 1920px;
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-dot {
+    animation: none;
   }
 }
