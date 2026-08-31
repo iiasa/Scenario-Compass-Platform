@@ -4,10 +4,6 @@ import { PublicReviewEyebrow } from "@/components/custom/public-review-eyebrow";
 import { PUBLIC_REVIEW } from "@/lib/config/public-review";
 import { INTERNAL_PATHS } from "@/lib/paths";
 
-/**
- * Lilac band directly under the hero announcing the public review of the scenario
- * evaluation criteria, routing visitors to the methodology page for context.
- */
 export function PublicReviewBand() {
   if (!PUBLIC_REVIEW.enabled) return null;
 

@@ -3,10 +3,6 @@ import { PublicReviewEyebrow } from "@/components/custom/public-review-eyebrow";
 import { PUBLIC_REVIEW } from "@/lib/config/public-review";
 import { CONTENT_LINK_CLASS } from "@/lib/utils";
 
-/**
- * Opening block on the methodology page carrying the full text of the public-review
- * invitation, with links to the criteria overview and the review form.
- */
 export function PublicReviewBlock() {
   if (!PUBLIC_REVIEW.enabled) return null;
 
