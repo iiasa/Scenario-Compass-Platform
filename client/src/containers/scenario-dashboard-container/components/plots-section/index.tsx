@@ -26,7 +26,7 @@ export default function ScenarioExplorationPlotsSection() {
       <Suspense fallback={<TabsSectionSkeleton />}>
         <TabsSection />
       </Suspense>
-      <div className="dashboard-container mx-auto flex gap-6 pb-24 lg:gap-8">
+      <div className="dashboard-container mx-auto flex flex-col gap-6 pb-24 lg:flex-row lg:gap-8">
         <Suspense fallback={<PlotGridSkeleton />}>
           <PlotGrid />
         </Suspense>

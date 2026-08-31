@@ -199,7 +199,7 @@ const SliderSelect: React.FC<SliderSelectProps> = ({
         </PopoverTrigger>
 
         <PopoverContent
-          className="w-[var(--radix-popover-trigger-width)] min-w-100 p-0"
+          className="w-[var(--radix-popover-trigger-width)] min-w-[min(400px,calc(100vw-2rem))] p-0"
           align="start"
         >
           <div className="divide-y divide-gray-200 py-2">

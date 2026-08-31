@@ -5,7 +5,6 @@ export function LearnByTopicPageContainer() {
   return (
     <>
       <ModuleHero />
-      <div className="grid min-h-screen place-content-center" />
       <ModuleCrossLinks />
     </>
   );
