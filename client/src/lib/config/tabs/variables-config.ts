@@ -34,7 +34,7 @@ export const EXPLORATION_GENERAL_TAB_PLOT_CONFIG: ReadonlyArray<PlotConfig> = [
 export const EXPLORATION_ENERGY_TAB_PLOT_CONFIG: ReadonlyArray<PlotConfig> = [
   {
     title: "Decarbonization",
-    variables: ["Primary Energy|Fossil", "Primary Energy|Gas"],
+    variables: ["Primary Energy|Fossil", "Primary Energy|Gas", "Primary Energy|Oil", "Primary Energy|Coal"],
   },
   {
     title: "Electricity generation",
