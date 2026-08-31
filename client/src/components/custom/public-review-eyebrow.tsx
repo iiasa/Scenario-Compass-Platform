@@ -5,7 +5,6 @@ interface Props {
   className?: string;
 }
 
-/** Status eyebrow with a pulsing burgundy dot, shared by the public-review band and block. */
 export function PublicReviewEyebrow({ children, className }: Props) {
   return (
     <p
