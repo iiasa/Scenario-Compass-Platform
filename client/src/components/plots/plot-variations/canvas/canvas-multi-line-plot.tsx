@@ -45,7 +45,8 @@ export const CanvasMultiLinePlot: React.FC<Props> = ({
   showVettingOverride,
   thresholdGuides,
 }) => {
-  const { selectedFlags, hiddenFlags, showVetting } = useScenarioFlagsSelection(prefix);
+  const { selectedFlags, hiddenFlags, showVetting, onlySci2025 } =
+    useScenarioFlagsSelection(prefix);
   const router = useRouter();
   const buildRunDetailsUrl = useGetRunDetailsUrl();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -107,6 +108,7 @@ export const CanvasMultiLinePlot: React.FC<Props> = ({
       decadeFilteredRuns,
       hiddenFlags,
       showVettingOverride ?? showVetting,
+      onlySci2025,
     );
     const extent = computeExtentWithPadding(visibleRuns, yExtent);
 
@@ -116,7 +118,7 @@ export const CanvasMultiLinePlot: React.FC<Props> = ({
     });
 
     doRender();
-  }, [data.runs, hiddenFlags, showVetting, showVettingOverride, yExtent, doRender]);
+  }, [data.runs, hiddenFlags, showVetting, showVettingOverride, onlySci2025, yExtent, doRender]);
 
   useEffect(() => {
     const isSelected = !!externalSelectedRun;

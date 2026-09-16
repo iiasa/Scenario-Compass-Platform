@@ -257,9 +257,29 @@ export const VALUE_OK = "ok";
  * @constant
  * @readonly
  */
-export const VETTING2025 = "Vetting|SCI 2025";
+export const VETTING2025 = "Historical Vetting [SCI 2025]";
+
+/**
+ * Value reported by the "Historical Vetting [SCI 2025]" meta indicator for a run
+ * that passed historical vetting. Other observed values are "failed" and
+ * "insufficient reporting" - only "passed" counts as vetted.
+ *
+ * @constant
+ * @readonly
+ */
+export const VETTING_STATUS_PASSED = "passed";
 
 export const IS_PART_OF_AR_6 = "Scenario Ensemble|AR6";
+
+/**
+ * Identifier for scenarios that are part of the SCI ensemble v1.1 (2025 release).
+ * Used to filter and identify scenarios that belong to this release, as opposed to
+ * scenarios only present in earlier or later ensembles.
+ *
+ * @constant
+ * @readonly
+ */
+export const IS_PART_OF_SCI_2025 = "Scenario Ensemble|SCI 2025";
 
 /**
  * Retrieves the abbreviated form of a category key.

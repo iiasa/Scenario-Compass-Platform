@@ -4,7 +4,7 @@ import {
   EMISSIONS_DIAGNOSTICS_CUMULATIVE_CCS_2020_2100_Gt_CO2,
   EMISSIONS_DIAGNOSTICS_CUMULATIVE_CO2_2020_2100_Gt_CO2,
 } from "@/lib/config/filters/advanced-filters-config";
-import { VETTING2025 } from "@/lib/config/reasons-of-concern/category-config";
+import { IS_PART_OF_SCI_2025, VETTING2025 } from "@/lib/config/reasons-of-concern/category-config";
 import { LAND_FOREST_COVER } from "@/lib/config/filters/land-filter-config";
 import {
   CLIMATE_CATEGORY_META_INDICATOR_KEY,
@@ -27,6 +27,7 @@ export const REQUIRED_META_KEYS = [
   CLIMATE_ASSESSMENT_WARMING_2100_MEDIAN,
   ENSEMBLE_WEIGHT_SCI_2025_BETA,
   VETTING2025,
+  IS_PART_OF_SCI_2025,
   LAND_FOREST_COVER,
   CLIMATE_CATEGORY_META_INDICATOR_KEY,
   YEAR_NET_ZERO_CO2_META_INDICATOR_KEY,

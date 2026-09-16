@@ -82,8 +82,8 @@ export const DotPlot: React.FC<DotPlotProps> = ({
   onSelectedRunChange,
   yExtent,
 }) => {
-  const { hiddenFlags, showVetting } = useScenarioFlagsSelection(prefix);
-  const visibleRuns = filterVisibleRuns(data.runs, hiddenFlags, showVetting);
+  const { hiddenFlags, showVetting, onlySci2025 } = useScenarioFlagsSelection(prefix);
+  const visibleRuns = filterVisibleRuns(data.runs, hiddenFlags, showVetting, onlySci2025);
 
   return (
     <PlotStateHandler items={visibleRuns} isLoading={data.isLoading} isError={data.isError}>

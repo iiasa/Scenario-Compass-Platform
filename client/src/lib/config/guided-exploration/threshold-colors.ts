@@ -1,4 +1,7 @@
-import { VALUE_OK, VETTING2025 } from "@/lib/config/reasons-of-concern/category-config";
+import {
+  VETTING2025,
+  VETTING_STATUS_PASSED,
+} from "@/lib/config/reasons-of-concern/category-config";
 import { ExtendedRun } from "@/types/data/run";
 import { ThresholdBand } from "@/lib/config/guided-exploration/capacity-thresholds";
 
@@ -37,7 +40,9 @@ export const createThresholdColorFn = (
   return (run: ExtendedRun): string => {
     const isVetted = includeUnvetted
       ? true
-      : run.metaIndicators.some((mi) => mi.key === VETTING2025 && mi.value === VALUE_OK);
+      : run.metaIndicators.some(
+          (mi) => mi.key === VETTING2025 && mi.value === VETTING_STATUS_PASSED,
+        );
 
     if (!isVetted) return UNVETTED_COLOR;
 

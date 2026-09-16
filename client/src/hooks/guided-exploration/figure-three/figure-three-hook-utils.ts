@@ -7,8 +7,8 @@ import {
   FEASIBILITY_META_KEY,
   SUSTAINABILITY_META_KEY,
   VALUE_HIGH,
-  VALUE_OK,
   VETTING2025,
+  VETTING_STATUS_PASSED,
 } from "@/lib/config/reasons-of-concern/category-config";
 import { matchesClimateCategoryFilter } from "@/utils/filtering";
 
@@ -27,7 +27,7 @@ const getBaselineValue = (run: ExtendedRun): number | undefined =>
   run.orderedPoints.find((point) => point.year === BASELINE_YEAR)?.value;
 
 const isVetted = (run: ExtendedRun): boolean =>
-  run.metaIndicators.some((mi) => mi.key === VETTING2025 && mi.value === VALUE_OK);
+  run.metaIndicators.some((mi) => mi.key === VETTING2025 && mi.value === VETTING_STATUS_PASSED);
 
 const hasNoConcern = (run: ExtendedRun): boolean => {
   const concernIndicators = run.metaIndicators.filter(

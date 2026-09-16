@@ -1,12 +1,16 @@
 import { ExtendedRun } from "@/types/data/run";
 import {
   getCategoryAbbrev,
-  VALUE_OK,
+  IS_PART_OF_SCI_2025,
   VETTING2025,
+  VETTING_STATUS_PASSED,
 } from "@/lib/config/reasons-of-concern/category-config";
 
 export const hasVettingFlag = (run: ExtendedRun): boolean =>
-  run.metaIndicators.some((mi) => mi.key === VETTING2025 && mi.value === VALUE_OK);
+  run.metaIndicators.some((mi) => mi.key === VETTING2025 && mi.value === VETTING_STATUS_PASSED);
+
+export const hasSci2025ReleaseFlag = (run: ExtendedRun): boolean =>
+  run.metaIndicators.some((mi) => mi.key === IS_PART_OF_SCI_2025 && mi.value === "true");
 
 const isHiddenByFlag = (run: ExtendedRun, hiddenFlags: string[]): boolean => {
   if (hiddenFlags.length === 0 || !run.flagCategory) return false;
@@ -33,6 +37,7 @@ export const filterVisibleRuns = (
   runs: ExtendedRun[],
   hiddenFlags: string[],
   showVetting: boolean,
+  onlySci2025Release: boolean = false,
 ): ExtendedRun[] => {
   let workingRuns: ExtendedRun[];
 
@@ -42,6 +47,10 @@ export const filterVisibleRuns = (
     });
   } else {
     workingRuns = runs;
+  }
+
+  if (onlySci2025Release) {
+    workingRuns = workingRuns.filter((run) => hasSci2025ReleaseFlag(run));
   }
 
   return workingRuns.filter((run) => {

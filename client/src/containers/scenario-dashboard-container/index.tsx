@@ -8,6 +8,7 @@ import { INTERNAL_PATHS } from "@/lib/paths";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import MetaIndicatorsFilterSkeleton from "@/containers/scenario-dashboard-container/components/meta-scenario-filters/skeletons/meta-indicators-filter-skeleton";
+import DataReleaseBanner from "@/containers/scenario-dashboard-container/components/data-release-banner";
 
 export default function ScenarioDashboardContainer() {
   return (
@@ -27,6 +28,7 @@ export default function ScenarioDashboardContainer() {
         </div>
         <ScenarioDashboardTopFilter />
       </ScenarioDashboardHero>
+      <DataReleaseBanner />
       <Suspense fallback={<MetaIndicatorsFilterSkeleton />}>
         <MetaIndicatorsFilters />
       </Suspense>

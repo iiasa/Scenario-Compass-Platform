@@ -23,9 +23,11 @@ interface Props {
 }
 
 export default function AdditionalInformation({ result, mode = "multiple" }: Props) {
-  const { hiddenFlags, showVetting } = useScenarioFlagsSelection();
+  const { hiddenFlags, showVetting, onlySci2025 } = useScenarioFlagsSelection();
   const visibleRuns =
-    mode === "multiple" ? filterVisibleRuns(result.runs, hiddenFlags, showVetting) : result.runs;
+    mode === "multiple"
+      ? filterVisibleRuns(result.runs, hiddenFlags, showVetting, onlySci2025)
+      : result.runs;
   const uniqueRuns = [...new Map(visibleRuns.map((run) => [run.runId, run])).values()];
   const allCounts = getAdditionalInformationMetaIndicatorCounts(uniqueRuns);
 

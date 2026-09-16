@@ -20,7 +20,7 @@ export default function HistogramWidget({ plotConfig, prefix, plotConfigArray }:
   const [currentVariable, setCurrentVariable] = useState(plotConfig.variables[0]);
   const { getVariable } = useTabAndVariablesParams(prefix);
   const allVars = plotConfigArray.map((pc) => getVariable(pc));
-  const { hiddenFlags, showVetting } = useScenarioFlagsSelection(prefix);
+  const { hiddenFlags, showVetting, onlySci2025 } = useScenarioFlagsSelection(prefix);
 
   const variablesNames = allVars.filter((variable) => variable !== currentVariable);
 
@@ -29,7 +29,7 @@ export default function HistogramWidget({ plotConfig, prefix, plotConfigArray }:
     prefix,
   });
 
-  const visibleRuns = filterVisibleRuns(runs, hiddenFlags, showVetting);
+  const visibleRuns = filterVisibleRuns(runs, hiddenFlags, showVetting, onlySci2025);
   const uniqueRuns = [...new Map(visibleRuns.map((run) => [run.runId, run])).values()];
 
   const metaIndicators: MetaIndicator[] = uniqueRuns.flatMap((run) => {

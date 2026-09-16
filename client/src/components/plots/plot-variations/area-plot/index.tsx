@@ -64,9 +64,9 @@ export const AreaPlot = ({
   prefix?: string;
   yExtent?: YExtentPair;
 }) => {
-  const { hiddenFlags, showVetting } = useScenarioFlagsSelection(prefix);
+  const { hiddenFlags, showVetting, onlySci2025 } = useScenarioFlagsSelection(prefix);
   const decadeFilteredRuns = filterDecadePoints(data.runs);
-  const visibleRuns = filterVisibleRuns(decadeFilteredRuns, hiddenFlags, showVetting);
+  const visibleRuns = filterVisibleRuns(decadeFilteredRuns, hiddenFlags, showVetting, onlySci2025);
 
   const allYears = [
     ...new Set(visibleRuns.flatMap((r) => r.orderedPoints.map((p) => p.year))),
