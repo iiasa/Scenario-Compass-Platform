@@ -28,6 +28,7 @@ type FlagsState = Record<string, FlagState>;
 export const useScenarioFlagsSelection = (prefix: string = "") => {
   const paramName = prefix ? `${prefix}Flags` : "flags";
   const showVettingParamName = prefix ? `${prefix}ShowVetting` : "showVetting";
+  const onlySci2025ParamName = prefix ? `${prefix}OnlySci2025` : "onlySci2025";
 
   const [flagsState, setFlagsState] = useQueryState<FlagsState>(paramName, {
     defaultValue: {},
@@ -58,6 +59,11 @@ export const useScenarioFlagsSelection = (prefix: string = "") => {
 
   const [showVetting, setShowVetting] = useQueryState(
     showVettingParamName,
+    parseAsBoolean.withDefault(false),
+  );
+
+  const [onlySci2025, setOnlySci2025] = useQueryState(
+    onlySci2025ParamName,
     parseAsBoolean.withDefault(false),
   );
 
@@ -158,6 +164,8 @@ export const useScenarioFlagsSelection = (prefix: string = "") => {
     hiddenFlags,
     showVetting,
     setShowVetting,
+    onlySci2025,
+    setOnlySci2025,
     handleCheckboxChange,
     handleHideToggle,
     isCategorySelected,

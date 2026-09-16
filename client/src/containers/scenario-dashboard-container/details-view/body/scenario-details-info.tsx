@@ -13,6 +13,7 @@ import {
   YEAR_PEAK_TEMPERATURE_META_INDICATOR_KEY,
 } from "@/lib/config/filters/climate-filter-config";
 import { ADDITIONAL_INFORMATION_META_INDICATORS } from "@/containers/scenario-dashboard-container/components/runs-pannel/utils";
+import { IS_PART_OF_SCI_2025 } from "@/lib/config/reasons-of-concern/category-config";
 import { useBaseUrlParams } from "@/hooks/nuqs/url-params/use-base-url-params";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
@@ -55,6 +56,10 @@ export default function ScenarioDetailsInfo() {
   const climateCategory = metaData?.find((item) =>
     item.key.includes(CLIMATE_CATEGORY_META_INDICATOR_KEY),
   ) || { value: "Loading Category" };
+
+  const partOfSci2025Release = metaData?.find((item) => item.key === IS_PART_OF_SCI_2025) || {
+    value: "n/a",
+  };
 
   const projectName = metaData?.find(
     (item) => item.key === ADDITIONAL_INFORMATION_META_INDICATORS[0].key,
@@ -135,6 +140,10 @@ export default function ScenarioDetailsInfo() {
               </Link>
             </div>
           </div>
+          <InfoItem
+            title="Part of SCI 2025 release (v1.1)"
+            value={partOfSci2025Release.value === "true" ? "Yes" : "N/A"}
+          />
         </>
       )}
     </div>

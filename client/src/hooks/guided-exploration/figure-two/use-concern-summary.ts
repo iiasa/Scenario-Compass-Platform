@@ -2,7 +2,10 @@ import { useMemo } from "react";
 import { ExtendedRun } from "@/types/data/run";
 import { ThresholdBand } from "@/lib/config/guided-exploration/capacity-thresholds";
 import { getConcernLevel } from "@/lib/config/guided-exploration/threshold-colors";
-import { VALUE_OK, VETTING2025 } from "@/lib/config/reasons-of-concern/category-config";
+import {
+  VETTING2025,
+  VETTING_STATUS_PASSED,
+} from "@/lib/config/reasons-of-concern/category-config";
 
 export const useConcernSummary = (
   runs: ExtendedRun[] | undefined,
@@ -21,7 +24,9 @@ export const useConcernSummary = (
     for (const run of runs) {
       const isVetted = includeUnvetted
         ? true
-        : run.metaIndicators.some((mi) => mi.key === VETTING2025 && mi.value === VALUE_OK);
+        : run.metaIndicators.some(
+            (mi) => mi.key === VETTING2025 && mi.value === VETTING_STATUS_PASSED,
+          );
 
       if (!isVetted) {
         unvetted++;

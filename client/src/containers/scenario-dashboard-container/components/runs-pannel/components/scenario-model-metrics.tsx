@@ -13,7 +13,7 @@ export default function ScenarioModelMetrics({ result }: { result: RunPipelineRe
   } = useQuery({
     ...queryKeys.runs.list({}),
   });
-  const { hiddenFlags, showVetting } = useScenarioFlagsSelection();
+  const { hiddenFlags, showVetting, onlySci2025 } = useScenarioFlagsSelection();
   const isLoadingState = result.isLoading || isLoadingModels;
   const isErrorState = result.isError || isErrorModels;
 
@@ -39,7 +39,7 @@ export default function ScenarioModelMetrics({ result }: { result: RunPipelineRe
 
   const totalRuns = data.length;
   const currentRuns = new Set(result.runs.map((run) => run.runId));
-  const visibleRuns = filterVisibleRuns(result.runs, hiddenFlags, showVetting);
+  const visibleRuns = filterVisibleRuns(result.runs, hiddenFlags, showVetting, onlySci2025);
   const uniqueRunsCount = [...new Set(visibleRuns.map((item) => item.runId))].length;
   return (
     <div className="mb-1.5 pb-1.5 text-base leading-6 text-stone-800">

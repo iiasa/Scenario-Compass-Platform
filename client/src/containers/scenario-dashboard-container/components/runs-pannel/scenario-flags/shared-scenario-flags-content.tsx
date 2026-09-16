@@ -21,6 +21,7 @@ import { Eye, EyeOff } from "lucide-react";
 import RunHeader from "@/containers/scenario-dashboard-container/components/runs-pannel/run-header";
 import { WeighteningToggle } from "@/containers/scenario-dashboard-container/components/runs-pannel/weightening-toggle";
 import { VettingToggle } from "@/containers/scenario-dashboard-container/components/runs-pannel/scenario-flags/vetting-toggle";
+import { Sci2025ReleaseToggle } from "@/containers/scenario-dashboard-container/components/runs-pannel/scenario-flags/sci-2025-release-toggle";
 
 export const SCENARIO_FLAGS_ACCORDION_VALUE = "scenario-flags";
 
@@ -35,9 +36,10 @@ export function SharedScenarioFlagsContent({
   prefix,
   showSelectedScenario = false,
 }: SharedContentProps) {
-  const { showVetting, toggleMultipleHidden, hiddenFlags } = useScenarioFlagsSelection(prefix);
+  const { showVetting, onlySci2025, toggleMultipleHidden, hiddenFlags } =
+    useScenarioFlagsSelection(prefix);
 
-  const visibleRuns = filterVisibleRuns(result.runs, [], showVetting);
+  const visibleRuns = filterVisibleRuns(result.runs, [], showVetting, onlySci2025);
 
   const { totalCountOfUniqueRuns, categories, highCategories, mediumCategories, okCategories } =
     useScenarioFlagsData(visibleRuns);
@@ -168,6 +170,7 @@ export function SharedScenarioFlagsContent({
               </Accordion>
             </div>
           )}
+          <Sci2025ReleaseToggle prefix={prefix} />
           <VettingToggle prefix={prefix} />
           <WeighteningToggle prefix={prefix} />
         </div>
