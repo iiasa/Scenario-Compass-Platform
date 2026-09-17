@@ -10,7 +10,7 @@ import {
   GROUP_SELECTION,
   IIASA_MAILCHIMP_URL,
 } from "@/lib/config/newsletter-constants";
-import Link from "next/link";
+import { EMBARGO_NOTICE_HEADING, EmbargoNoticeText } from "@/components/custom/embargo-notice";
 
 const CONSENT_KEY = "user-consent-timestamp";
 const DELAY = 24 * 60 * 60 * 1000;
@@ -82,65 +82,13 @@ export function EmbargoPopUp() {
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent
         showCloseButton={false}
-        className="bg-white sm:max-w-lg"
+        className="max-h-[90vh] overflow-y-auto bg-white sm:max-w-xl"
         aria-describedby={undefined}
         onInteractOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
-        <DialogTitle className="text-2xl">Embargo Notification</DialogTitle>
-        <p>
-          This website contains scenario data associated with unpublished research and a manuscript
-          currently under peer review.
-        </p>
-        <p>
-          The data may be used for scientific research purposes. However, users must strictly adhere
-          to the applicable{" "}
-          <Link
-            href="https://www.nature.com/nature-portfolio/editorial-policies/press-and-embargo-policies"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            Nature editorial policies and embargo rules
-          </Link>{" "}
-          until the manuscript has been formally published.
-        </p>
-        <p className="text-black">Please use the following citation when using the data:</p>
-
-        <div className="border-burgundy flex flex-col gap-3 border-l-2 bg-gray-50 px-5 py-4">
-          <div>
-            <p className="text-black">
-              <em>
-                &#34;Mitigation benchmarks from the 2025 community update of global emissions
-                pathways&#34;
-              </em>{" "}
-              (Riahi et al., submitted).
-            </p>
-            <Link
-              href="https://doi.org/10.21203/rs.3.rs-8891091/v1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-burgundy text-sm break-all underline"
-            >
-              https://doi.org/10.21203/rs.3.rs-8891091/v1
-            </Link>
-          </div>
-
-          <div>
-            <p className="text-black">
-              <em>&#34;Scenario Compass Initiative - Pathways Ensemble 2025&#34;</em> (Huppmann et
-              al.) Zenodo.
-            </p>
-            <Link
-              href="https://doi.org/10.5281/zenodo.18598250"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-burgundy text-sm break-all underline"
-            >
-              https://doi.org/10.5281/zenodo.18598250
-            </Link>
-          </div>
-        </div>
+        <DialogTitle className="text-2xl">{EMBARGO_NOTICE_HEADING}</DialogTitle>
+        <EmbargoNoticeText />
         <Button onClick={handleSkip} variant="outline" className="px-10" size="lg">
           Got it, continue to the dashboard
         </Button>

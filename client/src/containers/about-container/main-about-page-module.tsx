@@ -2,6 +2,7 @@ import { Heading } from "@/components/custom/heading";
 import Link from "next/link";
 import { ABOUT_PAGE_LINKS } from "@/lib/paths";
 import { CONTENT_LINK_CLASS } from "@/lib/utils";
+import { EMBARGO_NOTICE_HEADING, EmbargoNoticeText } from "@/components/custom/embargo-notice";
 
 export default function MainAboutPageModule() {
   return (
@@ -11,6 +12,12 @@ export default function MainAboutPageModule() {
           <Heading as="h2" size="4xl" variant="light" className="mb-4 text-center">
             Further information & Resources
           </Heading>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-2xl leading-8 font-bold text-stone-900">
+              {EMBARGO_NOTICE_HEADING}
+            </h3>
+            <EmbargoNoticeText />
+          </div>
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold text-stone-900">
               Contribution to IPCC AR7
