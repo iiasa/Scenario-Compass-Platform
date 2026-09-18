@@ -4,9 +4,7 @@ import requests
 
 class IIASABaseAPIClient:
     def __init__(self):
-        # self.app_name = os.getenv("NEXT_PUBLIC_API_APP_NAME", "scenariocompass").strip("/")
-        # just for testing, we will use the v1_1 version of the API
-        self.app_name = 'scenariocompass-v1_1';
+        self.app_name = os.getenv("NEXT_PUBLIC_API_APP_NAME", "scenariocompass").strip("/")
         self.base_url = os.getenv(
             "NEXT_PUBLIC_API_BASE_URL",
             "https://ixmp.ece.iiasa.ac.at/v1",
