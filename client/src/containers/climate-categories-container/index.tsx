@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { Heading } from "@/components/custom/heading";
 import { ClimateCategoriesTable } from "@/containers/climate-categories-container/climate-categories-table";
 import MethodologyPageHero from "@/containers/methodology-container/methodology-page-hero";
+import { CONTENT_LINK_CLASS } from "@/lib/utils";
 
 export default function ClimateCategoriesContainer() {
   return (
@@ -18,9 +20,12 @@ export default function ClimateCategoriesContainer() {
             Climate responses and emission trajectories are important characteristics of long-term
             global emissions scenarios. In light of the updated scenario ensemble and the resulting
             changes in warming outcomes, the SCI &#34;Scientific working group on Emissions and
-            Climate&#34; developed a new warming categorization (Riahi et al, 2026). This framework
-            builds on the warming categorizations used in SR1.5 and AR6, while improving the users’
-            understanding of the climatic implications of scenarios.
+            Climate&#34; developed a new warming categorization (
+            <Link className={CONTENT_LINK_CLASS} href="/about#embargo-notification">
+              Riahi et al., 2026
+            </Link>
+            ). This framework builds on the warming categorizations used in SR1.5 and AR6, while
+            improving the users’ understanding of the climatic implications of scenarios.
           </p>
           <ClimateCategoriesTable />
         </div>

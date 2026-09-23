@@ -1,5 +1,7 @@
-import { Fragment } from "react";
+import { CSSProperties, Fragment } from "react";
 import {
+  CategoryCharacteristics,
+  getAr6CategoryColors,
   SCI_CLIMATE_CATEGORIES,
   TierOneCategory,
   TierThreeCategory,
@@ -13,7 +15,22 @@ const withAlpha = (hex: string, alpha: number) =>
     .toString(16)
     .padStart(2, "0")}`;
 
-const CELL_CLASS = "border border-stone-300 px-3 py-2 align-top";
+/** Solid fill for a single color, gradient when a category corresponds to several AR6 categories. */
+const colorFill = (colors: string[], alpha: number, direction = "to bottom"): CSSProperties => {
+  const shades = colors.map((color) => withAlpha(color, alpha));
+  return shades.length > 1
+    ? { backgroundImage: `linear-gradient(${direction}, ${shades.join(", ")})` }
+    : { backgroundColor: shades[0] };
+};
+
+const ar6Colors = (characteristics: (CategoryCharacteristics | undefined)[]) => [
+  ...new Set(characteristics.flatMap((c) => (c ? getAr6CategoryColors(c.ar6Category) : []))),
+];
+
+const tierTwoCharacteristics = (tierTwo: TierTwoCategory) =>
+  tierTwo.children.length > 0 ? tierTwo.children : [tierTwo.characteristics];
+
+const CELL_CLASS = "border border-stone-300 px-2 py-1.5 align-top";
 
 function Criterion({ criterion }: { criterion: WarmingCriterion | null | undefined }) {
   if (!criterion) return null;
@@ -40,7 +57,7 @@ const tierOneRowSpan = (tierOne: TierOneCategory) =>
   tierOne.children.reduce((sum, tierTwo) => sum + tierTwoRowSpan(tierTwo), 0);
 
 function CategoryRows({ tierOne }: { tierOne: TierOneCategory }) {
-  const tint = withAlpha(tierOne.color, 0.15);
+  const tierOneColors = ar6Colors(tierOne.children.flatMap(tierTwoCharacteristics));
 
   return (
     <>
@@ -53,22 +70,20 @@ function CategoryRows({ tierOne }: { tierOne: TierOneCategory }) {
             {rows.map((tierThree, tierThreeIndex) => {
               const isFirstTierTwoRow = tierThreeIndex === 0;
               const isFirstTierOneRow = tierTwoIndex === 0 && isFirstTierTwoRow;
+              const characteristics = tierThree ?? tierTwo.characteristics;
 
               return (
                 <tr
                   key={tierThree?.code ?? tierTwo.code}
-                  style={{ backgroundColor: tint }}
+                  style={colorFill(ar6Colors([characteristics]), 0.15, "to right")}
                   className={isFirstTierOneRow ? "border-t-2 border-stone-400" : undefined}
                 >
                   {isFirstTierOneRow && (
                     <th
                       scope="rowgroup"
                       rowSpan={tierOneRowSpan(tierOne)}
-                      className={`${CELL_CLASS} text-left font-bold text-stone-900`}
-                      style={{
-                        backgroundColor: tierOne.color,
-                        borderLeft: `6px solid ${tierOne.color}`,
-                      }}
+                      className={`${CELL_CLASS} text-left font-bold whitespace-nowrap text-stone-900`}
+                      style={colorFill(tierOneColors, 1)}
                     >
                       {tierOne.code}
                     </th>
@@ -77,7 +92,7 @@ function CategoryRows({ tierOne }: { tierOne: TierOneCategory }) {
                     <td
                       rowSpan={tierTwoRowSpan(tierTwo)}
                       className={CELL_CLASS}
-                      style={{ backgroundColor: withAlpha(tierOne.color, 0.3) }}
+                      style={colorFill(ar6Colors(tierTwoCharacteristics(tierTwo)), 0.3)}
                     >
                       <CodeWithDescription code={tierTwo.code} description={tierTwo.description} />
                     </td>
@@ -91,15 +106,14 @@ function CategoryRows({ tierOne }: { tierOne: TierOneCategory }) {
                     )}
                   </td>
                   <td className={CELL_CLASS}>
-                    <Criterion criterion={tierThree?.peakWarming ?? tierTwo.peakWarming} />
+                    <Criterion criterion={characteristics?.peakWarming} />
                   </td>
                   <td className={CELL_CLASS}>
-                    <Criterion
-                      criterion={
-                        tierThree ? tierThree.endOfCenturyWarming : tierTwo.endOfCenturyWarming
-                      }
-                    />
+                    <Criterion criterion={characteristics?.endOfCenturyWarming} />
                   </td>
+                  <td className={CELL_CLASS}>{characteristics?.ghgEmissions}</td>
+                  <td className={CELL_CLASS}>{characteristics?.temperatureTrend}</td>
+                  <td className={CELL_CLASS}>{characteristics?.ar6Category}</td>
                 </tr>
               );
             })}
@@ -113,9 +127,10 @@ function CategoryRows({ tierOne }: { tierOne: TierOneCategory }) {
 export function ClimateCategoriesTable() {
   return (
     <div className="w-full overflow-x-auto">
-      <table className="w-full min-w-[720px] border-collapse text-sm leading-5 text-stone-800">
+      <table className="w-full min-w-[760px] border-collapse text-xs leading-4 text-stone-800">
         <caption className="sr-only">
-          SCI climate categories with their peak and end-of-century warming criteria
+          SCI climate categories with their warming criteria, end-of-century trends and
+          corresponding IPCC AR6 categories
         </caption>
         <thead className="bg-stone-100 text-left text-stone-900">
           <tr>
@@ -126,13 +141,15 @@ export function ClimateCategoriesTable() {
               Peak Warming
               <span className="block font-normal text-stone-600">(PW)</span>
             </th>
+            <th scope="colgroup" colSpan={3} className={`${CELL_CLASS} text-center`}>
+              Climate and emissions trends at the end of the century
+            </th>
             <th scope="col" rowSpan={2} className={`${CELL_CLASS} align-middle`}>
-              End-of-century Warming
-              <span className="block font-normal text-stone-600">(EoCW)</span>
+              Corresponding IPCC AR6 category
             </th>
           </tr>
           <tr>
-            <th scope="col" className={CELL_CLASS}>
+            <th scope="col" className={`${CELL_CLASS} whitespace-nowrap`}>
               Tier I
             </th>
             <th scope="col" className={CELL_CLASS}>
@@ -140,6 +157,16 @@ export function ClimateCategoriesTable() {
             </th>
             <th scope="col" className={CELL_CLASS}>
               Tier III
+            </th>
+            <th scope="col" className={CELL_CLASS}>
+              Warming
+              <span className="block font-normal text-stone-600">(EoCW)</span>
+            </th>
+            <th scope="col" className={CELL_CLASS}>
+              GHG emissions
+            </th>
+            <th scope="col" className={CELL_CLASS}>
+              Temperature trend
             </th>
           </tr>
         </thead>
