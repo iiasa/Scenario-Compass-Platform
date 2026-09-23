@@ -85,6 +85,21 @@ export default function MethodologyContainer() {
 
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold text-stone-900">
+              How do we categorize scenarios by their climate impact?
+            </h3>
+            <p>
+              The SCI &#34;Scientific working group on Emissions and Climate&#34; developed a new
+              set of climate categories, incorporating insights from AR6 and recent publications.
+              See{" "}
+              <Link className={CONTENT_LINK_CLASS} href="/methodology/categories">
+                here
+              </Link>{" "}
+              for more information.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="text-2xl leading-8 font-bold text-stone-900">
               How to interpret a set of scenarios?
             </h3>
             <p>
