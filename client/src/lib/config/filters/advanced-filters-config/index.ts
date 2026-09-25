@@ -5,10 +5,10 @@ export const EMISSIONS_DIAGNOSTICS_CUMULATIVE_CO2_2020_2100_Gt_CO2 =
   "Emissions Diagnostics|Cumulative CO2 [2020-2100, Gt CO2]";
 
 export const CLIMATE_ASSESSMENT_PEAK_WARMING_MEDIAN =
-  "Climate Assessment|Peak Warming|Median [MAGICCv7.5.3]";
+  "Climate Assessment|Peak Warming|Median [MAGICC v7.6.0a3]";
 
 export const CLIMATE_ASSESSMENT_WARMING_2100_MEDIAN =
-  "Climate Assessment|Warming in 2100|Median [MAGICCv7.5.3]";
+  "Climate Assessment|Warming in 2100|Median [MAGICC v7.6.0a3]";
 
 export const CARBON_REMOVAL_KEY = "carbonRemoval";
 
