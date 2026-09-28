@@ -28,7 +28,9 @@ export default function ScenarioDashboardContainer() {
         </div>
         <ScenarioDashboardTopFilter />
       </ScenarioDashboardHero>
-      <DataReleaseBanner />
+      <Suspense fallback={null}>
+        <DataReleaseBanner />
+      </Suspense>
       <Suspense fallback={<MetaIndicatorsFilterSkeleton />}>
         <MetaIndicatorsFilters />
       </Suspense>
