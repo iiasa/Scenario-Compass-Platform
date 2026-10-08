@@ -26,6 +26,7 @@ export const EXTERNAL_PATHS = {
   IIASA_BLUESKY: "https://bsky.app/profile/iiasa.ac.at",
   IIASA_DOWNLOAD: "https://download.scenariocompass.org",
   IIASA_TERMS_OF_USE: "https://iiasa.ac.at/terms-of-use",
+  EXPERT_USER_INTERFACE: "https://explorer.scenariocompass.org",
 };
 
 export const EXTERNAL_LINKS: Record<
