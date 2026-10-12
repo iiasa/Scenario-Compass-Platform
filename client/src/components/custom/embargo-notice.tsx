@@ -49,8 +49,9 @@ export function EmbargoNoticeText() {
 
         <div>
           <p className="text-black">
-            <em>&#34;Scenario Compass Initiative - Pathways Ensemble 2025 (v1.1)&#34;</em> (Huppmann
-            et al.) Zenodo.
+            <em>&#34;Scenario Compass Initiative - Pathways Ensemble 2026 (v2.0)&#34;</em> (Huppmann
+            et al.) Zenodo.<br />
+            (or earlier versions)
           </p>
           <Link
             href="https://doi.org/10.5281/zenodo.18598250"
