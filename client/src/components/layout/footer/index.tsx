@@ -19,28 +19,63 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-between gap-10 pt-16 lg:flex-row">
-            <Image
-              src="/images/logos/logo_iamc.png"
-              className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
-              alt="Integrated Assessment Modeling Consortium Logo"
-              width={500}
-              height={199}
-            />
-            <Image
-              src="/images/logos/logo_bef.svg"
-              className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
-              alt="Bezos Earth Found Logo"
-              width={176}
-              height={75}
-            />
-            <Image
-              src="/images/logos/logo_iiasa.png"
-              className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
-              alt="International Institute for Applied Systems Analysis Logo"
-              width={500}
-              height={140}
-            />
+          <div className="flex flex-col items-center justify-center gap-14 pt-16 lg:flex-row lg:items-start lg:gap-24">
+            <div className="flex flex-col items-center gap-6">
+              <p className="text-sm leading-6 font-medium tracking-wide text-stone-500 uppercase">
+                Scientific leads
+              </p>
+              <div className="flex flex-col items-center gap-10 sm:flex-row">
+                <Image
+                  src="/images/logos/logo_iiasa.png"
+                  className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
+                  alt="International Institute for Applied Systems Analysis Logo"
+                  width={500}
+                  height={140}
+                />
+                <Image
+                  src="/images/logos/logo_iamc.png"
+                  className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
+                  alt="Integrated Assessment Modeling Consortium Logo"
+                  width={500}
+                  height={199}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-6">
+              <p className="text-sm leading-6 font-medium tracking-wide text-stone-500 uppercase">
+                Funding
+              </p>
+              <div className="flex flex-col items-center gap-10 sm:flex-row">
+                <Image
+                  src="/images/logos/logo_bef.svg"
+                  className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
+                  alt="Bezos Earth Fund Logo"
+                  width={176}
+                  height={75}
+                />
+                <div className="flex flex-col items-center gap-2">
+                  <Image
+                    src="/images/logos/logo_futura.png"
+                    className="pointer-events-none h-10 w-auto select-none lg:h-12 lg:w-auto"
+                    alt="FUTURA Logo"
+                    width={540}
+                    height={160}
+                  />
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="/images/logos/logo_eu_flag.svg"
+                      className="pointer-events-none h-5 w-auto select-none"
+                      alt="Flag of the European Union"
+                      width={810}
+                      height={540}
+                    />
+                    <span className="text-xs leading-4 font-medium text-stone-700">
+                      Funded by the European Union
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col items-center justify-center gap-7 pt-16 pb-12 text-center lg:flex-row lg:gap-14 lg:pb-16">
