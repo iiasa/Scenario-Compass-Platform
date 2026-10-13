@@ -1,6 +1,8 @@
 "use client";
 
 import { Info } from "lucide-react";
+import Link from "next/link";
+import { INTERNAL_PATHS } from "@/lib/paths";
 import { useScenarioFlagsSelection } from "@/hooks/nuqs/flags/use-scenario-flags-selection";
 
 const RELEASE_DOI_2025 = "10.5281/zenodo.21805011";
@@ -39,7 +41,6 @@ export default function DataReleaseBanner({ prefix = "" }: { prefix?: string }) 
     </>
   );
 
-
   return (
     <div className="dashboard-container flex items-center bg-white pt-6">
       <div className="mx-auto flex items-start gap-2 rounded-md border border-blue-200 bg-white px-4 py-3 text-sm text-blue-900">
@@ -49,14 +50,21 @@ export default function DataReleaseBanner({ prefix = "" }: { prefix?: string }) 
             <p>This dashboard shows only scenarios from {release_2025}.</p>
           ) : (
             <p>
-              This dashboard shows all scenarios from {release_2026} and recently submitted/published
-              scenarios (&quot;live database mode&quot;).
+              This dashboard shows all scenarios from {release_2026} and recently
+              submitted/published scenarios (&quot;live database mode&quot;).
             </p>
           )}
           <p className="text-blue-900/60">
             {onlySci2025
               ? "Use the toggle at the bottom right to show all scenarios."
               : "Use the toggle at the bottom right to show only scenarios from the SCI 2025 ensemble (release v1.1)."}
+          </p>
+          <p className="text-blue-900/60">
+            See the{" "}
+            <Link href={INTERNAL_PATHS.CHANGELOG} className="underline">
+              changelog
+            </Link>{" "}
+            for the full release history.
           </p>
         </div>
       </div>
