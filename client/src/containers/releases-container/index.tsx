@@ -152,7 +152,7 @@ const RELEASES: Release[] = [
   },
 ];
 
-export default function ChangelogContainer() {
+export default function ReleasesContainer() {
   return (
     <>
       <div className="bg-burgundy relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
@@ -172,7 +172,7 @@ export default function ChangelogContainer() {
         </div>
         <div className="content-container z-10 mt-14 flex flex-col gap-8 pb-20">
           <Heading variant="dark" size="5xl" as="h1" id="hero-title" className="text-left">
-            Changelog
+            Releases
           </Heading>
           <h2 className="text-background h-20 text-xl leading-7 lg:w-2/5"></h2>
         </div>

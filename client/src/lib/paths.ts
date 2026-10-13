@@ -19,7 +19,7 @@ export const INTERNAL_PATHS = {
   AR7: "/ar7",
   NOT_FOUND: "/not-found",
   LICENSE: "/license",
-  CHANGELOG: "/changelog",
+  RELEASES: "/releases",
 } as const;
 
 export const EXTERNAL_PATHS = {
