@@ -46,17 +46,10 @@ export function Footer() {
                 Funding
               </p>
               <div className="flex flex-col items-center gap-10 sm:flex-row">
-                <Image
-                  src="/images/logos/logo_bef.svg"
-                  className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
-                  alt="Bezos Earth Fund Logo"
-                  width={176}
-                  height={75}
-                />
                 <div className="flex flex-col items-center gap-2">
                   <Image
                     src="/images/logos/logo_futura.png"
-                    className="pointer-events-none h-10 w-auto select-none lg:h-12 lg:w-auto"
+                    className="pointer-events-none h-16 w-auto select-none lg:h-20 lg:w-auto"
                     alt="FUTURA Logo"
                     width={540}
                     height={160}
@@ -74,6 +67,13 @@ export function Footer() {
                     </span>
                   </div>
                 </div>
+                <Image
+                  src="/images/logos/logo_bef.svg"
+                  className="pointer-events-none h-14 w-auto select-none lg:h-18 lg:w-auto"
+                  alt="Bezos Earth Fund Logo"
+                  width={176}
+                  height={75}
+                />
               </div>
             </div>
           </div>
