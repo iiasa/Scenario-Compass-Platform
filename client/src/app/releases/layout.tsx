@@ -1,6 +1,6 @@
 import { ScenarioDashboardCrossLink } from "@/components/cross-links/scenario-dashboard-cross-link";
 
-export default function ChangelogPageLayout({ children }: { children: React.ReactNode }) {
+export default function ReleasesPageLayout({ children }: { children: React.ReactNode }) {
   return (
     <main className="flex w-full flex-col items-center">
       {children}

@@ -19,15 +19,15 @@ export default function MainAboutPageModule() {
             <EmbargoNoticeText />
           </div>
           <div className="flex flex-col gap-4">
-            <h3 id="changelog" className="text-2xl leading-8 font-bold text-stone-900">
-              Changelog
+            <h3 id="releases" className="text-2xl leading-8 font-bold text-stone-900">
+              Release history and changelog
             </h3>
             <p>
-              The release history of the SCI ensemble is documented on the{" "}
-              <Link href={INTERNAL_PATHS.CHANGELOG} className={CONTENT_LINK_CLASS}>
-                changelog
-              </Link>{" "}
-              page.
+              The release history of the SCI ensemble is documented{" "}
+              <Link href={INTERNAL_PATHS.RELEASES} className={CONTENT_LINK_CLASS}>
+                here
+              </Link>
+              .
             </p>
           </div>
           <div className="flex flex-col gap-4">

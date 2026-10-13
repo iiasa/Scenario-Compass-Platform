@@ -57,14 +57,12 @@ export default function DataReleaseBanner({ prefix = "" }: { prefix?: string }) 
           <p className="text-blue-900/60">
             {onlySci2025
               ? "Use the toggle at the bottom right to show all scenarios."
-              : "Use the toggle at the bottom right to show only scenarios from the SCI 2025 ensemble (release v1.1)."}
-          </p>
-          <p className="text-blue-900/60">
-            See the{" "}
-            <Link href={INTERNAL_PATHS.CHANGELOG} className="underline">
-              changelog
-            </Link>{" "}
-            for the full release history.
+              : "Use the toggle at the bottom right to show only scenarios from the SCI 2025 ensemble (release v1.1)."}{" "}
+            See the full{" "}
+            <Link href={INTERNAL_PATHS.RELEASES} className="underline">
+              release history
+            </Link>
+            .
           </p>
         </div>
       </div>
