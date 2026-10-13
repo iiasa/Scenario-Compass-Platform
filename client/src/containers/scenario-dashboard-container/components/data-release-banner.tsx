@@ -3,10 +3,10 @@
 import { Info } from "lucide-react";
 import Link from "next/link";
 import { INTERNAL_PATHS } from "@/lib/paths";
+import { ShortCitation } from "@/components/custom/citation";
 import { useScenarioFlagsSelection } from "@/hooks/nuqs/flags/use-scenario-flags-selection";
 
 const RELEASE_DOI_2025 = "10.5281/zenodo.21805011";
-const RELEASE_DOI_2026 = "10.5281/zenodo.23232097";
 
 export default function DataReleaseBanner({ prefix = "" }: { prefix?: string }) {
   const { onlySci2025 } = useScenarioFlagsSelection(prefix);
@@ -26,21 +26,6 @@ export default function DataReleaseBanner({ prefix = "" }: { prefix?: string }) 
     </>
   );
 
-  const release_2026 = (
-    <>
-      SCI 2026 ensemble (release v2.0, October 8, 2026, doi:{" "}
-      <a
-        href={`https://doi.org/${RELEASE_DOI_2026}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline"
-      >
-        {RELEASE_DOI_2026}
-      </a>
-      )
-    </>
-  );
-
   return (
     <div className="dashboard-container flex items-center bg-white pt-6">
       <div className="mx-auto flex items-start gap-2 rounded-md border border-blue-200 bg-white px-4 py-3 text-sm text-blue-900">
@@ -50,7 +35,7 @@ export default function DataReleaseBanner({ prefix = "" }: { prefix?: string }) 
             <p>This dashboard shows only scenarios from {release_2025}.</p>
           ) : (
             <p>
-              This dashboard shows all scenarios from {release_2026} and recently
+              This dashboard shows all scenarios from <ShortCitation /> and recently
               submitted/published scenarios (&quot;live database mode&quot;).
             </p>
           )}
