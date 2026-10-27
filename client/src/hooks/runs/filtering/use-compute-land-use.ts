@@ -17,16 +17,20 @@ const EMPTY_GFA: Record<string, number> = {};
 const selectDataPoints = (data: DataFrame) => extractDataPoints(data);
 
 const WORLD_REGION = "World";
+const BASE_YEAR = 2020;
+const TARGET_YEAR = 2050;
 
-const fetchForestData = (stepYear: number) => ({
+// Both years are fetched in a single request and split by year client-side.
+const fetchForestData = {
   ...queryKeys.dataPoints.tabulate({
     variable: { name: LAND_FOREST_COVER },
     region: { name: WORLD_REGION },
-    stepYear,
+    // @ts-expect-error Not sufficient ts support
+    stepYear_in: [BASE_YEAR, TARGET_YEAR],
   }),
   staleTime: 5 * 60 * 1000,
   select: selectDataPoints,
-});
+};
 
 const calculatePercentageChanges = (data2020: DataPoint[], data2050: DataPoint[]) => {
   const results: Record<string, number> = {};
@@ -44,25 +48,15 @@ const calculatePercentageChanges = (data2020: DataPoint[], data2050: DataPoint[]
 };
 
 export default function useComputeLandUse(): Result {
-  const {
-    data: data2050,
-    isLoading: loading2050,
-    isError: error2050,
-  } = useQuery(fetchForestData(2050));
-
-  const {
-    data: data2020,
-    isLoading: loading2020,
-    isError: error2020,
-  } = useQuery(fetchForestData(2020));
-
-  const isLoading = loading2050 || loading2020;
-  const isError = error2050 || error2020;
+  const { data, isLoading, isError } = useQuery(fetchForestData);
 
   const gfaIncreaseArray = useMemo(() => {
-    if (!data2020 || !data2050) {
+    if (!data) {
       return EMPTY_GFA;
     }
+
+    const data2020 = data.filter((point) => point.year === BASE_YEAR);
+    const data2050 = data.filter((point) => point.year === TARGET_YEAR);
 
     if (data2050.length !== data2020.length) {
       console.warn(
@@ -71,7 +65,7 @@ export default function useComputeLandUse(): Result {
     }
 
     return calculatePercentageChanges(data2020, data2050);
-  }, [data2020, data2050]);
+  }, [data]);
 
   return { gfaIncreaseArray, isLoading, isError };
 }
