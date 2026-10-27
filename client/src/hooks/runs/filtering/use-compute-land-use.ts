@@ -16,9 +16,12 @@ const EMPTY_GFA: Record<string, number> = {};
 
 const selectDataPoints = (data: DataFrame) => extractDataPoints(data);
 
+const WORLD_REGION = "World";
+
 const fetchForestData = (stepYear: number) => ({
   ...queryKeys.dataPoints.tabulate({
     variable: { name: LAND_FOREST_COVER },
+    region: { name: WORLD_REGION },
     stepYear,
   }),
   staleTime: 5 * 60 * 1000,
