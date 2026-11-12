@@ -74,11 +74,33 @@ export default function ShowcaseContainer() {
       </AboutPageHero>
       <section className="flex w-full flex-col items-center bg-white">
         <div className="content-container flex max-w-[846px] flex-col gap-16 py-24 pb-10">
+          <div className="flex flex-col gap-4 text-center">
+            <Heading as="h2" size="4xl" variant="light">
+              Work based on the Scenario Compass
+            </Heading>
+            <p className="text-lg leading-7">
+              The aim of the Scenario Compass Initiative is to provide a useful ensemble of curated
+              pathways for policy-relevant analysis of climate mitigation strategies. The examples
+              below show recent uses of the scenario ensemble.
+            </p>
+          </div>
           {SHOWCASE_ITEMS.map((item) => (
             <article
               key={item.title}
               className="flex flex-col gap-6 text-black sm:flex-row sm:items-center sm:gap-10"
             >
+              <div className="flex flex-1 flex-col gap-4">
+                <h3 className="text-2xl leading-8 font-bold text-stone-900">{item.title}</h3>
+                <p>{item.description}</p>
+                <Link
+                  href={item.href}
+                  {...linkProps(item)}
+                  aria-label={`Learn more: ${item.title}`}
+                  className={`${CONTENT_LINK_CLASS} w-fit`}
+                >
+                  Learn more
+                </Link>
+              </div>
               {item.image ? (
                 <Link
                   href={item.href}
@@ -96,21 +118,9 @@ export default function ShowcaseContainer() {
                   />
                 </Link>
               ) : (
-                // Keeps the text aligned with items that have an image
+                // Keeps the text width consistent with items that have an image
                 <div aria-hidden="true" className="hidden shrink-0 sm:block sm:w-64" />
               )}
-              <div className="flex flex-col gap-4">
-                <h3 className="text-2xl leading-8 font-bold text-stone-900">{item.title}</h3>
-                <p>{item.description}</p>
-                <Link
-                  href={item.href}
-                  {...linkProps(item)}
-                  aria-label={`Learn more: ${item.title}`}
-                  className={`${CONTENT_LINK_CLASS} w-fit`}
-                >
-                  Learn more
-                </Link>
-              </div>
             </article>
           ))}
         </div>
