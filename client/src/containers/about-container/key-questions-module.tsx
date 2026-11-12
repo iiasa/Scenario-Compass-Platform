@@ -1,6 +1,7 @@
 import { Heading } from "@/components/custom/heading";
 import Link from "next/link";
 import { CONTENT_LINK_CLASS } from "@/lib/utils";
+import { INTERNAL_PATHS } from "@/lib/paths";
 
 export default function KeyQuestions() {
   return (
@@ -18,7 +19,7 @@ export default function KeyQuestions() {
           information comes from.
         </p>
       </div>
-      <div className="grid grid-rows-3 gap-6 xl:grid-cols-3 xl:grid-rows-1">
+      <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-3 rounded-lg bg-white p-8">
           <p className="text-foreground text-2xl leading-8 font-semibold">
             What information does the Scenario Compass Explorer provide?
@@ -53,6 +54,19 @@ export default function KeyQuestions() {
           <p className="leading-6 text-stone-700">
             Most scenarios come from peer-reviewed research; others come from working papers of
             report. <br /> Each scenario clearly lists its source within the Scenario Compass.
+          </p>
+        </div>
+        <div className="flex flex-col gap-3 rounded-lg bg-white p-8">
+          <p className="text-foreground text-2xl leading-8 font-semibold">
+            Which activities use the Scenario Compass ensemble?
+          </p>
+          <p className="leading-6 text-stone-700">
+            The pathways ensemble compiled by the Scenario Compass is used by several high-level
+            reports and activities. <br />
+            For more see:{" "}
+            <Link href={INTERNAL_PATHS.SHOWCASE} className={CONTENT_LINK_CLASS}>
+              Showcase
+            </Link>
           </p>
         </div>
       </div>
