@@ -3,18 +3,7 @@ import Link from "next/link";
 import { Heading } from "@/components/custom/heading";
 import MethodologyPageHero from "@/containers/methodology-container/methodology-page-hero";
 import { CONTENT_LINK_CLASS } from "@/lib/utils";
-
-const Links = {
-  IPCC_AR6: "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-III.pdf",
-  SENSES_TOOLKIT: "https://climatescenarios.org/primer/",
-  QUALITY_CONTROLLER: "https://scenario-evaluation-criteria.iamconsortium.org/stable/",
-  FEATURED_REGISTRATION: "https://sandbox.scenariocompass.org/tor",
-  Heerden: "https://doi.org/10.1038/s41560-025-01703-1",
-  Soergel: "https://doi.org/10.1088/1748-9326/ad80af",
-  Richters: "https://doi.org/10.5281/zenodo.5782903",
-  Gidden: "https://doi.org/10.1038/s41586-023-06724-y",
-  Byers: "https://doi.org/10.5281/zenodo.5886911",
-};
+import { INTERNAL_PATHS } from "@/lib/paths";
 
 export default function MethodologyContainer() {
   return (
@@ -52,12 +41,7 @@ export default function MethodologyContainer() {
             />
             <p>
               More information on vetting criteria can be found{" "}
-              <Link
-                href={Links.QUALITY_CONTROLLER}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={CONTENT_LINK_CLASS}
-              >
+              <Link href={INTERNAL_PATHS.EVALUATION} className={CONTENT_LINK_CLASS}>
                 here
               </Link>
               .
