@@ -21,6 +21,7 @@ export const INTERNAL_PATHS = {
   LICENSE: "/license",
   RELEASES: "/releases",
   SHOWCASE: "/showcase",
+  EVALUATION: "/evaluation",
 } as const;
 
 export const EXTERNAL_PATHS = {
@@ -113,4 +114,8 @@ export const AR7_PAGE_LINKS = {
 export const SHOWCASE_PAGE_LINKS = {
   EMISSIONS_GAP_REPORT_2026: "https://wedocs.unep.org/items/87c02cac-8da8-4c28-ba61-c846ee68ea70",
   UNEP_FI_CLIMATE_PATHWAYS_NAVIGATOR: "https://unep-fi.apps.ece.iiasa.ac.at",
+};
+
+export const EVALUATION_PAGE_LINKS = {
+  CRITERIA_2026_08_03: "https://doi.org/10.5281/zenodo.21771914",
 };
