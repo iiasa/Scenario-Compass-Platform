@@ -20,6 +20,7 @@ export const INTERNAL_PATHS = {
   NOT_FOUND: "/not-found",
   LICENSE: "/license",
   RELEASES: "/releases",
+  EVALUATION: "/evaluation",
 } as const;
 
 export const EXTERNAL_PATHS = {
@@ -108,4 +109,8 @@ export const AR7_PAGE_LINKS = {
     "https://www.iamconsortium.org/scientific-working-groups/national-scenarios/",
   IPCC_AR6_ANNEX_III:
     "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-III.pdf",
+};
+
+export const EVALUATION_PAGE_LINKS = {
+  CRITERIA_2026_08_03: "https://doi.org/10.5281/zenodo.21771914",
 };
