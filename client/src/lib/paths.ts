@@ -20,6 +20,7 @@ export const INTERNAL_PATHS = {
   NOT_FOUND: "/not-found",
   LICENSE: "/license",
   RELEASES: "/releases",
+  SHOWCASE: "/showcase",
 } as const;
 
 export const EXTERNAL_PATHS = {
@@ -79,7 +80,6 @@ const allDesktopPaths = [
   { href: EXTERNAL_LINKS.DOWNLOAD.href, label: EXTERNAL_LINKS.DOWNLOAD.label },
   { href: INTERNAL_PATHS.LICENSE, label: "License" },
   { href: INTERNAL_PATHS.ABOUT, label: "About" },
-  { href: INTERNAL_PATHS.AR7, label: "AR7" },
 ];
 
 export const desktopPaths: LinkItem[] = env.NEXT_PUBLIC_PRE_LAUNCH_MODE
@@ -108,4 +108,9 @@ export const AR7_PAGE_LINKS = {
     "https://www.iamconsortium.org/scientific-working-groups/national-scenarios/",
   IPCC_AR6_ANNEX_III:
     "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-III.pdf",
+};
+
+export const SHOWCASE_PAGE_LINKS = {
+  EMISSIONS_GAP_REPORT_2026: "https://wedocs.unep.org/items/87c02cac-8da8-4c28-ba61-c846ee68ea70",
+  UNEP_FI_CLIMATE_PATHWAYS_NAVIGATOR: "https://unep-fi.apps.ece.iiasa.ac.at",
 };
