@@ -32,14 +32,6 @@ export default function MainAboutPageModule() {
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold text-stone-900">
-              Contribution to IPCC AR7
-            </h3>
-            <Link href="/ar7" className={CONTENT_LINK_CLASS}>
-              Call for scenario submissions for IPCC AR7
-            </Link>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h3 className="text-2xl leading-8 font-bold text-stone-900">
               AR6 and beyond - which scenarios are available?
             </h3>
             <p>
