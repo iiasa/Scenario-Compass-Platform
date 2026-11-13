@@ -2,6 +2,7 @@ import { Heading } from "@/components/custom/heading";
 import AboutPageHero from "@/containers/about-container/about-page-hero";
 import { EVALUATION_PAGE_LINKS } from "@/lib/paths";
 import { CONTENT_LINK_CLASS } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -28,6 +29,47 @@ const CRITERIA_VERSIONS: CriteriaVersion[] = [
     link: null,
   },
 ];
+
+const RESOURCES = [
+  {
+    title: "Evaluation Criteria",
+    description: "Detailed quantifications of evaluation criteria",
+    href: EVALUATION_PAGE_LINKS.CRITERIA_WEBSITE,
+  },
+  {
+    title: "Python package",
+    description: "A Python package for evaluation and diagnostics",
+    href: EVALUATION_PAGE_LINKS.PYTHON_PACKAGE,
+  },
+];
+
+function ResourceCards() {
+  return (
+    <div className="grid gap-6 md:grid-cols-2">
+      {RESOURCES.map((resource) => (
+        <Link
+          key={resource.title}
+          href={resource.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex flex-col gap-3 rounded-lg bg-stone-100 p-8 transition-colors hover:bg-stone-200"
+        >
+          <span className="flex items-center justify-between gap-4 text-2xl leading-8 font-semibold text-stone-900">
+            {resource.title}
+            <ArrowUpRight
+              aria-hidden="true"
+              className="text-burgundy size-6 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </span>
+          <span className="leading-6 text-stone-700">{resource.description}</span>
+          <span className="text-burgundy text-sm font-medium [overflow-wrap:anywhere] underline decoration-1 underline-offset-2">
+            {resource.href.replace(/^https:\/\//, "")}
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -103,31 +145,28 @@ export default function EvaluationContainer() {
       </AboutPageHero>
       <section className="flex w-full flex-col items-center bg-white">
         <div className="content-container flex max-w-[846px] flex-col gap-12 py-24 pb-10 text-black">
-          <Section title="Scenario Evaluation Criteria">
-            <p className="text-lg leading-7">
-              A set of community criteria for evaluating integrated assessment emissions scenarios.
-            </p>
+          <Section title="Background">
             <p>
               Integrated Assessment Models (IAMs) are computational models that produce scenarios of
               economy, energy system, land use, and greenhouse-gas emissions developments over time,
               across regions, and under different policy assumptions. Those scenarios are often
               evaluated in the process of producing new scenarios or when collecting and assessing
               existing scenarios. Specifically, IAM scenarios are often checked against empirical
-              observations, near-term projections, and sustainability targets to identify scenarios
-              that are outdated, internally inconsistent, technically infeasible, or ecologically or
+              observations, near-term trends, and sustainability targets to identify scenarios that
+              are outdated, internally inconsistent, technically infeasible, or ecologically or
               socially undesirable.
             </p>
             <p>
-              This website documents the criteria used to evaluate scenarios in the Scenario Compass
-              Initiative (SCI). The criteria are developed to curate a high-quality scenario
-              ensemble suitable for a wide range of scenario users. Following a transparent,
-              community-driven process, the scenario evaluation criteria are reviewed every year and
-              published in a versioned, machine-readable format. In addition, this website details
-              the chosen thresholds, reference data, and justification for each criterion.
+              The Scenario Compass Initiative (SCI) is developing a set of evaluation criteria used
+              to curate a high-quality scenario ensemble suitable for a wide range of scenario
+              users. Following a transparent, community-driven process, the scenario evaluation
+              criteria are reviewed every year and published in a versioned, machine-readable
+              format. In addition, this website details the chosen thresholds, reference data, and
+              justification for each criterion.
             </p>
           </Section>
 
-          <Section title="How the criteria are developed">
+          <Section title="Community process">
             <p>
               The criteria are developed by the SCI in collaboration with the IAMC Scientific
               Working Groups on Scenarios and on Data, following the subsequent steps:
@@ -164,7 +203,7 @@ export default function EvaluationContainer() {
             <CriteriaVersionsTable />
           </Section>
 
-          <Section title="Two types of criteria">
+          <Section title="Types of criteria">
             <p>
               There are two types of evaluation criteria: historical vetting as well as feasibility
               and sustainability concerns.
@@ -174,7 +213,7 @@ export default function EvaluationContainer() {
               <p>
                 Scenarios are evaluated for correctly representing the current energy system. They
                 are marked as inconsistent if they do not match reported historical real-world
-                estimates for time periods in the past.
+                reference values for the recent past.
               </p>
             </div>
             <div className="flex flex-col gap-2">
@@ -197,7 +236,7 @@ export default function EvaluationContainer() {
             </div>
           </Section>
 
-          <Section title="How the criteria are applied">
+          <Section title="Application of criteria">
             <p>
               The criteria are applied on the SCI scenario database to derive a high-quality
               scenario ensemble recommended to use, amongst others for community benchmarks (see
@@ -218,6 +257,8 @@ export default function EvaluationContainer() {
               benchmark-relevant ensemble.
             </p>
           </Section>
+
+          <ResourceCards />
         </div>
       </section>
     </>
