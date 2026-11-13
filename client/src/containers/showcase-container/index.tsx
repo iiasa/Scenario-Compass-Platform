@@ -15,6 +15,8 @@ type ShowcaseItem = {
     alt: string;
     width: number;
     height: number;
+    /** Tailwind width class for the image; defaults to the full 256px column. */
+    displayWidthClass?: string;
   };
 };
 
@@ -30,6 +32,8 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
       alt: "Cover of the Emissions Gap Report 2026",
       width: 393,
       height: 558,
+      // Half width, so the portrait cover isn't much bigger than the landscape images
+      displayWidthClass: "w-32",
     },
   },
   {
@@ -102,21 +106,23 @@ export default function ShowcaseContainer() {
                 </Link>
               </div>
               {item.image ? (
-                <Link
-                  href={item.href}
-                  {...linkProps(item)}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  className="w-64 max-w-full shrink-0"
-                >
-                  <Image
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    width={item.image.width}
-                    height={item.image.height}
-                    className="h-auto w-full"
-                  />
-                </Link>
+                <div className="flex w-64 max-w-full shrink-0 sm:justify-center">
+                  <Link
+                    href={item.href}
+                    {...linkProps(item)}
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    className={item.image.displayWidthClass ?? "w-full"}
+                  >
+                    <Image
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      width={item.image.width}
+                      height={item.image.height}
+                      className="h-auto w-full"
+                    />
+                  </Link>
+                </div>
               ) : (
                 // Keeps the text width consistent with items that have an image
                 <div aria-hidden="true" className="hidden shrink-0 sm:block sm:w-64" />
