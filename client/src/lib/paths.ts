@@ -113,4 +113,6 @@ export const AR7_PAGE_LINKS = {
 
 export const EVALUATION_PAGE_LINKS = {
   CRITERIA_2026_08_03: "https://doi.org/10.5281/zenodo.21771914",
+  CRITERIA_WEBSITE: "https://scenario-evaluation-criteria.iamconsortium.org",
+  PYTHON_PACKAGE: "https://scenariocompass.readthedocs.io",
 };
