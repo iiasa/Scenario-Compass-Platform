@@ -37,6 +37,21 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     },
   },
   {
+    title: "Science Panel for the Global Energy Transition",
+    description:
+      "The SCI ensemble was used in a Policy Brief presented at COP31 in Antalya, Türkiye on November 10, 2026.",
+    href: SHOWCASE_PAGE_LINKS.SPGET_COP31_POLICY_BRIEF,
+    external: true,
+    image: {
+      src: "/images/showcase/spget-cop31-policy-brief-cover.webp",
+      alt: "Cover of the policy brief Transitioning Away from Fossil Fuels in Paris-Aligned Mitigation Pathways",
+      width: 393,
+      height: 553,
+      // Half width, like the other portrait cover
+      displayWidthClass: "w-32",
+    },
+  },
+  {
     title: "UNEP-FI Climate Pathways Navigator",
     description:
       "The scenarios were used to develop a specialized tool designed to support financial institutions in setting science-based climate targets and assessing sectoral decarbonization pathways.",
